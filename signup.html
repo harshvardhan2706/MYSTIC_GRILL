@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+
+<body>
+    <container>
+        <form class="centerform">
+            <form action="action_page.php">
+                <div class="container">
+                  <h1>Register</h1><br>
+                  <p>Please fill this form to create an account.</p>
+                  <hr>
+
+                  <label for="Name"><b>Name</b></label>
+                  <input type="text" placeholder="Name" name="name" id="name">
+              
+                  <label for="email"><b>Email</b></label>
+                  <input type="email" placeholder="Enter Email" name="email" id="email" required>
+
+                  <label for="Mobile Number"><b>Mobile Number</b></label>
+                  <input type="number" placeholder="Mobile Number" name="Mobile Number" id="mnumber">
+
+                  <label for="addres"><b>Address</b></label>
+                  <input type="text" placeholder="Address" name="addres" id="address">
+              
+                  <label for="psw"><b>Password</b></label>
+                  <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+              
+                  <label for="psw-repeat"><b>Repeat Password</b></label>
+                  <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+                  <hr>
+              
+                  <button type="submit" class="registerbtn">Register</button>
+                </div>
+              
+                <div class="container signin">
+                  <p>Already have an account? <a href="login.html">Sign in</a>.</p>
+                </div>
+              </form>
+        </form>
+    </container>
+
+</body>
+
+</html>

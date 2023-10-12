@@ -1,0 +1,81 @@
+/*CART*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  body{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg,#2980b9, #8e44ad);
+    height: 100vh;
+    overflow: hidden;
+  }
+
+.itembox{
+    position: absolute;
+    width: 60%;
+    top: 51%;
+    left: 32%;
+    height: 600px;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 10px;
+    box-shadow: 20px 20px 25px rgba(0,0,0,0.05);
+
+
+}
+.orderbox{
+    position: absolute;
+    width:500px;
+    top: 50%;
+    left: 80%;
+    height: 30%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+}
+
+.details{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 25px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.details .place_your_order{
+    position: relative;
+    left: 20%;
+    top: 40px;
+}
+
+.details .rbox{
+    position: relative;
+    font-size: 12px;
+    width:50%;
+}
+
+
+
+input[type="submit"]{
+    width: 60%;
+    height: 30px;
+    border: 2px solid;
+    background: #2691d9;
+    border-radius: 24px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+  }
+  input[type="submit"]:hover{
+    border-color: #2691d9;
+    transition: .2s;
+  }

@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  body{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg,#2980b9, #8e44ad);
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .centerheader{
+    position: relative;
+    left: 40%;
+    top: 30%;
+  }
+
+  .back{
+    position: relative;
+    left: 50%;
+    top:33%;
+  }

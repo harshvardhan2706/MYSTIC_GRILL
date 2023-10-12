@@ -1,0 +1,153 @@
+/* CSS RESET */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: linear-gradient(120deg,#2980b9, #8e44ad);
+}
+
+CSS Variables
+:root{
+    --navbar-height:59px;
+}
+
+/*Navigation Bar*/
+#navbar{
+    display: flex;
+    align-items: center;
+}
+
+/* N. Bar Logo and Image*/
+#logo{
+    margin: 10px 34px;
+}
+
+#logo img{
+    height: 59px;
+    margin: 3px 6px;
+}
+
+/*List Styling of NAVIGATION BAR*/
+#navbar{
+    position: relative;
+}
+#navbar ul{
+    display:flex;
+}
+
+#navbar::before{
+    content: "";
+    background-color: black;
+    position: absolute;
+    height:100%;
+    width:100%;
+    z-index:-1;
+    opacity:0.4;
+}
+#navbar ul li{
+    list-style: none;
+}
+
+#navbar ul li a{
+    color: white;
+    font: bold;
+    display: block;
+    padding: 3px 22px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+#navbar ul li a:hover{
+    color:black;
+    background-color: lightblue;
+    display: block;
+    padding: 3px 22px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+/*card*/
+.container{
+    margin-left: 10%;
+    top: 52%;
+    left: 29%;
+    transform: translate(-50%,-50%);
+    position:absolute;
+    width:max-content;
+    height:80%;
+    overflow-y:scroll;
+    background-image: url('images/bgmenu2.jpg');
+    box-shadow: 2px black;
+}
+
+.card{
+    border:1px solid black;
+    width:max-content;
+    text-align: center;
+    display:inline-block;
+    margin:5px;
+    box-shadow:  2px black;
+}
+
+.card img{
+    height:150px;
+    width:200px;
+    padding: 5px;
+}
+
+.title{
+    font-weight: bold;
+    margin:20px;
+}
+
+button{
+    border: 2px white;
+    background:lightblue;
+    color:black;
+    font-weight: bold;
+    margin: 20px;
+    padding: 5px 10px;
+
+}
+
+button:hover{
+    box-shadow:0 0 5px 5px rgb(249, 249, 248);
+}
+
+/*CART*/
+.cart{
+    width:300px;
+    float:right;
+    top: 20px;
+    text-align:center;
+    border:2px solid black;
+    height:630px;
+    border-radius: 10px;
+    background-color: aliceblue;
+}
+
+/*.maincart{
+    overflow-y:scroll;
+    width:300px;
+    float: right;
+    top: 54%;
+    height: 490px;
+
+}*/
+
+.cartfooter{
+    margin: 2px;
+    padding: center;
+    position: relative;
+    top: 70%;
+}
+
+
+.maincart .text{
+    position: relative;
+    top: 100%;
+    
+}
+
