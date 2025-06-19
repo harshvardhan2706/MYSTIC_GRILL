@@ -31,12 +31,13 @@
     width:500px;
     top: 50%;
     left: 80%;
-    height: 30%;
+    height: 40%;
     transform: translate(-50%, -50%);
     background: white;
     border-radius: 10px;
     box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
 }
+
 
 .details{
     width: 100%;
@@ -51,8 +52,8 @@
 
 .details .place_your_order{
     position: relative;
-    left: 20%;
-    top: 40px;
+    left: 0%;
+    top: 60px;
 }
 
 .details .rbox{

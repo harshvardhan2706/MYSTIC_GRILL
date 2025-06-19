@@ -43,13 +43,97 @@
 
                 Grand Total : <input type="hidden" name="" id="gtotal" class="rbox"><br>
 
-                <input class="place_your_order" type="submit" value="Place Your Order">
+                <input id="place_your_order" class="place_your_order" type="submit" value="Place Your Order">
             </div>
 
 
     </div>
 </section> 
 
+    <script src="addtocart.js"></script>
+    <script>
+    // Render cart items and order details on cart page
+    function renderCartPage() {
+        const cart = getCart();
+        const itembox = document.querySelector('.itembox');
+        const orderNo = Math.floor(Math.random() * 90000) + 10000;
+        let subtotal = 0;
+        if (cart.length === 0) {
+            itembox.innerHTML = '<h2>Your cart is empty.</h2>';
+        } else {
+            itembox.style.maxHeight = '420px';
+            itembox.style.overflowY = 'auto';
+            itembox.style.background = '#fff';
+            itembox.style.borderRadius = '12px';
+            itembox.style.boxShadow = '0 2px 8px #0001';
+            itembox.style.padding = '18px 12px';
+            itembox.innerHTML = cart.map((item, idx) => `
+                <div class="cart-card" style="display:flex;align-items:center;gap:16px;margin-bottom:16px;padding:12px;background:#f7f9fa;border-radius:10px;box-shadow:0 1px 4px #0001;">
+                    <img src="${getImageForItem(item.name)}" alt="${item.name}" style="width:70px;height:70px;object-fit:cover;border-radius:8px;">
+                    <div style="flex:1;min-width:0;">
+                        <div style="font-weight:bold;font-size:1.1em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${item.name}</div>
+                        <div style="font-size:0.97em;">Qty: ${item.qty}</div>
+                        <div style="font-size:0.97em;">Price: Rs.${item.price} x ${item.qty} = <b>Rs.${item.price * item.qty}</b></div>
+                    </div>
+                    <button onclick="deleteCartItem(${idx})" style="background:#e74c3c;color:#fff;border:none;padding:8px 14px;border-radius:6px;cursor:pointer;font-weight:bold;">Delete</button>
+                </div>
+            `).join('');
+            subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+        }
+        // Fill order details visually
+        const detailsDiv = document.querySelector('.details');
+        if (cart.length === 0) {
+            detailsDiv.innerHTML = '<div style="padding:20px 0;text-align:center;color:#888;">No items in cart.</div>';
+        } else {
+            const taxes = Math.round(subtotal * 0.05); // 5% tax
+            const grandTotal = subtotal + taxes;
+            detailsDiv.style.padding = '10px 18px 18px 18px';
+            detailsDiv.style.background = '#fff';
+            detailsDiv.style.borderRadius = '12px';
+            detailsDiv.style.boxShadow = '0 2px 8px #0001';
+            detailsDiv.innerHTML = `
+                <div style="margin-bottom:8px;"><b>Order No.:</b> <span style='color:#2d6cdf;'>${orderNo}</span></div>
+                <div style="margin-bottom:8px;"><b>Price Details:</b></div>
+                <div style="margin:0 0 8px 18px;padding:0;max-height:120px;overflow-y:auto;">
+                    ${cart.map(item => `<div style='white-space:nowrap;overflow:hidden;text-overflow:ellipsis;'>${item.name} x ${item.qty} = Rs.${item.price * item.qty}</div>`).join('')}
+                </div>
+                <div style="margin-bottom:6px;"><b>Sub total:</b> Rs.${subtotal}</div>
+                <div style="margin-bottom:6px;"><b>Taxes and Charges (5%):</b> Rs.${taxes}</div>
+                <div style="margin-bottom:16px;font-size:1.1em;"><b>Grand Total:</b> <span style='color:#27ae60;'>Rs.${grandTotal}</span></div>
+                <input class="place_your_order" type="submit" value="Place Your Order" style="width:100%;font-size:1.1em;margin-top:10px;box-sizing:border-box;">
+            `;
+        }
+    }
+    // Helper to get image path for item name
+    function getImageForItem(name) {
+        const map = {
+            'TEA': 'images/tea.jpg',
+            'COFFEE': 'images/coffe.jpg',
+            'MAAZA': 'images/maaza.webp',
+            'STING': 'images/sting.webp',
+            'FIZZ': 'images/fizz.jpg',
+            'SAMOSA': 'images/samosa.webp',
+            'VADA-PAW': 'images/vadapaw.jpg',
+            'PATTIES': 'images/patties.jpg',
+            'MASALA-SANDWICH': 'images/masalasandwich.jpg',
+            'CHEESE-SANDWICH': 'images/cheesegrilledsandwich.jpg',
+            'FRENCH FRIES': 'images/frenchfries.jpg',
+            'MAGGI': 'images/maggi1.jpg',
+            'CHEESE-MAGGI': 'images/cheesemaggi.jpg',
+            'BURGER': 'images/burger.jpg',
+            'PIZZA': 'images/pizza.jpg'
+        };
+        return map[name] || 'images/logo.webp';
+    }
+    // Delete item from cart
+    function deleteCartItem(idx) {
+        let cart = getCart();
+        cart.splice(idx, 1);
+        saveCart(cart);
+        renderCartPage();
+    }
+    window.onload = renderCartPage;
+    </script>
 
 </body>
 </html>
