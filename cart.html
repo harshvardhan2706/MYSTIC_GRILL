@@ -52,6 +52,10 @@
 
     <script src="addtocart.js"></script>
     <script>
+    // Redirect to login if not logged in (for all pages except login/signup/forgotpswd)
+    if (!localStorage.getItem('isLoggedIn') && !['login.html','signup.html','forgotpswd.html'].includes(window.location.pathname.split('/').pop())) {
+      window.location.href = 'login.html';
+    }
     // Render cart items and order details on cart page
     function renderCartPage() {
         const cart = getCart();
@@ -132,7 +136,38 @@
         saveCart(cart);
         renderCartPage();
     }
-    window.onload = renderCartPage;
+    window.onload = function() {
+        renderCartPage();
+        // Place order logic
+        document.addEventListener('click', function(e) {
+            if (e.target && e.target.classList.contains('place_your_order')) {
+                const cart = getCart();
+                if (!cart.length) return;
+                // Prepare order object
+                const orderNo = Math.floor(Math.random() * 90000) + 10000;
+                const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+                const taxes = Math.round(subtotal * 0.05);
+                const grandTotal = subtotal + taxes;
+                const order = {
+                    orderNo,
+                    items: cart,
+                    subtotal,
+                    taxes,
+                    grandTotal,
+                    date: new Date().toLocaleString()
+                };
+                // Save to order history
+                let history = JSON.parse(localStorage.getItem('orderHistory') || '[]');
+                history.unshift(order);
+                localStorage.setItem('orderHistory', JSON.stringify(history));
+                // Clear cart
+                saveCart([]);
+                // Confirmation
+                document.querySelector('.itembox').innerHTML = '<h2 style="color:#27ae60;text-align:center;">Order Placed Successfully!</h2>';
+                document.querySelector('.details').innerHTML = `<div style='text-align:center;padding:30px 0;'>Thank you for your order!<br>Order No.: <b style='color:#2d6cdf;'>${orderNo}</b></div>`;
+            }
+        });
+    }
     </script>
 
 </body>

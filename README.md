@@ -1,5 +1,43 @@
-### MYSTIC-GRILL: Your Ultimate Canteen Meal Ordering Solution
+# Mystic Grill 🍔
 
-MYSTIC-GRILL is a premier cafeteria food and meal ordering web app that streamlines your dining experience. With a simple user interface, customizable ordering and a seamless ordering process, you can explore different menus, personalize your meals and place orders with just a few clicks. Enjoy real-time updates, secure payments and access to your order history. Create user profiles for quick check-out and give us feedback so we can improve. Experience convenience, variety and quality with MYSTIC-GRILL, your solution for uncomplicated, delicious meals at the touch of a button!
+A modern, responsive online food ordering web app built with HTML, CSS, and JavaScript.
 
-@harshvardhan_gandharv
+## Features
+- **Login System**: Secure login (default: `admin`/`root`).
+- **Menu Page**: Browse food items, add to cart, and view images/prices.
+- **Cart Page**: View, update, and delete cart items. Place orders with order summary.
+- **Order Placement**: Orders are saved and confirmed with a unique order number.
+- **Order History**: See all previous orders with details and totals.
+- **Responsive Design**: Works on desktop and mobile.
+
+## Quick Start
+1. **Clone the repository:**
+   ```
+   git clone https://github.com/harshvardhan2706/MYSTIC_GRILL.git
+   ```
+2. **Open `login.html` in your browser.**
+3. **Login with:**
+   - **Username:** `admin`
+   - **Password:** `root`
+4. **Enjoy browsing, adding to cart, and placing orders!**
+
+## Project Structure
+- `index.html` — Home page
+- `menu.html` — Menu and add to cart
+- `cart.html` — Cart and order placement
+- `orders.html` — Order history
+- `login.html`, `signup.html`, `forgotpswd.html` — Auth pages
+- `addtocart.js` — Cart/order logic
+- `*.css` — Stylesheets
+- `images/` — Food and UI images
+
+## Customization
+- Add new menu items by editing `menu.html` and updating `addtocart.js` image map.
+- Change styles in the CSS files for your own look.
+
+## Credits
+- UI inspired by modern food delivery apps.
+- Images are for demo purposes only.
+
+---
+**Made with ❤️ for demo and learning.**

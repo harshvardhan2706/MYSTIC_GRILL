@@ -45,6 +45,23 @@
         </form>
       </div>
     
+    <script>
+    document.querySelector('form').onsubmit = function(e) {
+      e.preventDefault();
+      const username = this.username.value.trim();
+      const password = this.password.value.trim();
+      if(username === 'admin' && password === 'root') {
+        localStorage.setItem('isLoggedIn', 'true');
+        window.location.href = 'index.html';
+      } else {
+        alert('Invalid username or password!');
+      }
+    };
+    // Redirect to login if not logged in (for all pages except login/signup/forgotpswd)
+    if (!localStorage.getItem('isLoggedIn') && !['login.html','signup.html','forgotpswd.html'].includes(window.location.pathname.split('/').pop())) {
+      window.location.href = 'login.html';
+    }
+    </script>
 </body>
 </html>
 

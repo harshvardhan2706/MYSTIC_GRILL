@@ -87,5 +87,11 @@
             <h3>Copyright &copy; All rights reserved</h3>
         </div>
     </footer>
+    <script>
+    // Redirect to login if not logged in (for all pages except login/signup/forgotpswd)
+    if (!localStorage.getItem('isLoggedIn') && !['login.html','signup.html','forgotpswd.html'].includes(window.location.pathname.split('/').pop())) {
+      window.location.href = 'login.html';
+    }
+    </script>
 </body>
 </html>
